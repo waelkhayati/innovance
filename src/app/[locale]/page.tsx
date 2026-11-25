@@ -5,6 +5,8 @@ import { contactLinks, site, type Locale } from "@/config/site";
 import { copy } from "@/content/copy";
 import { Footer, Header } from "@/components/layout";
 import { Work } from "@/components/work";
+import { Consultant } from "@/components/consultant";
+import { profile } from "@/content/consultant";
 
 type Props = { params: Promise<{ locale: Locale }> };
 
@@ -19,9 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title, description: t.description, siteName: site.name, type: "website",
       locale: locale === "en" ? "en_US" : "fr_FR", alternateLocale: locale === "en" ? "fr_FR" : "en_US",
       url: site.url ? "/" + locale : undefined,
-      images: site.url ? [{ url: "/images/social-carthage-wireframe.jpg", width: 1200, height: 630, alt: locale === "fr" ? "Reconstitution du port punique de Carthage" : "Reconstruction of the Punic harbor of Carthage" }] : undefined,
+      images: site.url ? [{ url: "/images/carthage-harbor-wireframe.jpg", width: 1200, height: 630, alt: locale === "fr" ? "Reconstitution du port punique de Carthage" : "Reconstruction of the Punic harbor of Carthage" }] : undefined,
     },
-    twitter: { card: "summary_large_image", title, description: t.description, images: site.url ? ["/images/social-carthage-wireframe.jpg"] : undefined },
+    twitter: { card: "summary_large_image", title, description: t.description, images: site.url ? ["/images/carthage-harbor-wireframe.jpg"] : undefined },
   };
 }
 
@@ -41,7 +43,7 @@ export default async function Page({ params }: Props) {
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "Organization", "@id": "#innovance", name: site.name, url: site.url, slogan: t.slogan, description: t.description },
-      { "@type": "Person", "@id": "#consultant", name: site.consultant, jobTitle: t.role, worksFor: { "@id": "#innovance" }, sameAs: channels.linkedin ? [channels.linkedin] : undefined },
+      { "@type": "Person", "@id": "#consultant", name: site.consultant, jobTitle: profile[locale].role, worksFor: { "@id": "#innovance" }, sameAs: channels.linkedin ? [channels.linkedin] : undefined },
     ],
   };
   return <>
@@ -80,15 +82,7 @@ export default async function Page({ params }: Props) {
         </div>
       </section>
       <Work locale={locale} />
-      <section className="section consultant" id="consultant">
-        <div className="shell consultant-layout">
-          <div className="consultant-heading"><p className="eyebrow">{t.consultant}</p><h2>{site.consultant}</h2><p className="role">{t.role}</p></div>
-          {site.portrait && <div className="consultant-portrait">
-            <Image {...site.portrait} alt={site.consultant} sizes="(max-width: 390px) calc(100vw - 2rem), (max-width: 700px) 352px, (max-width: 1200px) 40vw, 464px" />
-          </div>}
-          <div className="consultant-bio"><p className="lead">{t.bio}</p><p>{t.bioMore}</p></div>
-        </div>
-      </section>
+      <Consultant locale={locale} />
       <section className="section contact dark" id="contact">
         <div className="shell split"><div><p className="eyebrow">{t.nav[5]}</p><h2>{t.contact}</h2></div>
           <div><p>{t.contactBody}</p>{links.length ? <div className="contact-links">{links}</div> : <p className="pending">{t.pending}</p>}</div>

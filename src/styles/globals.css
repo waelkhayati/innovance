@@ -88,7 +88,8 @@ summary::-webkit-details-marker { display: none; }
 .project dt { font-weight: 750; }
 .project dd { margin: 0; }
 .consultant { background: #ebe3d6; }
-.role { font-weight: 750; color: var(--rust); margin-top: 1rem; }
+.consultant-name { font-family: var(--font-montserrat), sans-serif; font-size: clamp(1.25rem, 2.5vw, 1.8rem); font-weight: 750; margin-top: 1.35rem; }
+.role { font-weight: 750; color: var(--rust); margin-top: .2rem; }
 .consultant-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); grid-template-areas: "heading portrait" "bio portrait"; grid-template-rows: auto 1fr; gap: 1.4rem clamp(2rem, 7vw, 7rem); }
 .consultant-heading { grid-area: heading; }
 .consultant-bio { grid-area: bio; max-width: 39rem; }
@@ -97,6 +98,24 @@ summary::-webkit-details-marker { display: none; }
 .consultant-portrait::before { content: ""; position: absolute; inset: 11% 0 0; z-index: -1; background: #dfd2c0; border-radius: 58% 42% 0 0 / 58% 54% 0 0; }
 .consultant-portrait::after { content: ""; position: absolute; inset: 13% -2% 0 0; z-index: -1; pointer-events: none; background: var(--ship-curves) right 34% / 100% auto no-repeat; opacity: .62; }
 .consultant-portrait img { display: block; width: 100%; height: auto; }
+.profile-expertise, .profile-international { margin-top: clamp(2.5rem, 5vw, 4.5rem); }
+.profile-expertise h3, .profile-international h3 { font-size: clamp(1.35rem, 2.5vw, 1.85rem); }
+.profile-expertise ul, .profile-international ul { display: grid; margin-top: 1.2rem; gap: .7rem; }
+.profile-expertise ul { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.profile-expertise li { display: flex; align-items: center; gap: .75rem; padding: .85rem; background: var(--ivory); border: 1px solid var(--line); font-weight: 650; line-height: 1.4; }
+.profile-expertise svg, .profile-international svg { color: var(--rust); flex: none; }
+.profile-evidence { margin-top: 2.4rem; border-top: 1px solid #bdb1a0; }
+.profile-evidence details { border-bottom: 1px solid #bdb1a0; }
+.profile-evidence summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem .25rem; list-style: none; }
+.profile-evidence summary svg { color: var(--rust); flex: none; }
+.profile-evidence details[open] summary svg { transform: rotate(45deg); }
+.profile-evidence details > p { padding-inline: .25rem; }
+.profile-evidence ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.15rem 2rem; padding: .55rem .25rem 1.35rem; }
+.profile-evidence li img { width: auto; max-width: 4rem; max-height: 4rem; margin-bottom: .5rem; object-fit: contain; }
+.profile-evidence a, .profile-international a { text-decoration: underline; text-underline-offset: .2em; }
+.profile-international h3 { display: flex; align-items: center; gap: .55rem; }
+.profile-international ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.profile-international li { border-top: 2px solid var(--rust); padding-top: .75rem; }
 .contact .split { align-items: center; }
 .contact { position: relative; isolation: isolate; }
 .contact::before { background-position: right bottom; opacity: .26; }
@@ -127,9 +146,14 @@ summary::-webkit-details-marker { display: none; }
   .split, .project-grid { grid-template-columns: 1fr; }
   .consultant-layout { grid-template-columns: minmax(0, 1fr); grid-template-areas: "heading" "portrait" "bio"; grid-template-rows: auto; }
   .consultant-portrait { justify-self: start; width: min(100%, 22rem); }
+  .profile-expertise ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .profile-evidence ul, .profile-international ul { grid-template-columns: 1fr; }
   .pillar-grid { grid-template-columns: 1fr; gap: 0; }
   .pillar-grid article, .pillar-grid article:nth-child(4) { padding: 1.25rem 0; border-left: 0; border-bottom: 1px solid #bdb1a0; }
   .framework ol { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+  .profile-expertise ul { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 

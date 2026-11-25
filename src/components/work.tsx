@@ -13,7 +13,7 @@ export function Work({ locale }: { locale: Locale }) {
         {projects.map((project) => {
           const p = project.copy[locale];
           const Icon = project.tone === "health" ? Activity : Clapperboard;
-          return <article key={project.id} className="project">
+          return <article key={project.id} id={project.id} className="project">
             {project.image ? <div className="project-image"><Image {...project.image} alt={p.alt} sizes="(max-width: 760px) 100vw, 50vw" /></div> :
               <div className={"project-image placeholder " + project.tone}>
                 <Icon size={62} strokeWidth={1} aria-hidden="true" />

@@ -36,6 +36,7 @@ After deployment, verify both language pages and contact links on the final orig
 | `src/components/` | Navigation, language controls and reusable case-study presentation |
 | `src/content/copy.ts` | English and French page copy |
 | `src/content/projects.ts` | Typed, bilingual case-study records |
+| `src/content/consultant.ts` | Bilingual consultant profile, expertise, experience, education and credentials |
 | `src/config/site.ts` | Brand identity, optional assets, domain and contact validation |
 | `src/styles/globals.css` | Tailwind entry point, design tokens and responsive styles |
 | `public/images/` | Carthage harbor reconstruction, social crop and consultant portrait |
@@ -46,7 +47,7 @@ Additional locales can be introduced through the locale registry, translated con
 
 - The header and footer pair a vector trace of the emblem from the supplied brand board with a typeset wordmark. To use an approved standalone emblem later, set `site.logo` to its public path and intrinsic dimensions. The browser favicon uses the same traced emblem on a navy tile.
 - Put approved Urologe Khayati and Biling Media screenshots under `public/projects/` and fill in each project's `image` with its public path and intrinsic dimensions. Update the localized alternative text to describe the actual screenshot. The current case-study visuals are labeled development placeholders.
-- Update `site.portrait` in `src/config/site.ts` if replacing the supplied consultant portrait.
+- Update `site.portrait` in `src/config/site.ts` if replacing the supplied consultant portrait. Add verified award wording, credential verification URLs and authentic badge paths to the relevant entries in `src/content/consultant.ts` when available.
 - Add confirmed contact details in `src/config/site.ts`. Use a plain email address, a WhatsApp number in international E.164 format, an HTTPS LinkedIn personal profile URL and an HTTPS booking URL as available. Only validated entries appear in the contact section and footer.
 - Set the verified `SITE_URL`. Until then, the sitemap contains no URLs and absolute canonical, hreflang and social image metadata are omitted.
 - The hero and social preview use an AI-generated interpretation of ancient Carthage at sunset. The supplied reconstruction guided the harbor layout.
