@@ -43,7 +43,7 @@ export default async function Page({ params }: Props) {
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "Organization", "@id": "#innovance", name: site.name, url: site.url, slogan: t.slogan, description: t.description },
-      { "@type": "Person", "@id": "#consultant", name: site.consultant, jobTitle: profile[locale].role, worksFor: { "@id": "#innovance" }, sameAs: channels.linkedin ? [channels.linkedin] : undefined },
+      { "@type": "Person", "@id": "#consultant", jobTitle: profile[locale].role, worksFor: { "@id": "#innovance" }, sameAs: channels.linkedin ? [channels.linkedin] : undefined },
     ],
   };
   return <>
