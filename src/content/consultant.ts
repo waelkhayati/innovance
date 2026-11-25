@@ -4,7 +4,7 @@ type Translation = Record<Locale, string>;
 
 export const profile = {
   en: {
-    heading: "The Person Behind Innovance",
+    heading: "Wael Khayati",
     role: "Digital Business Consultant",
     tagline: "Business. Technology. Execution.",
     intro: "I help businesses turn strategy into digital solutions they can put to work. My background spans enterprise consulting, software engineering, product management and business analytics. You work directly with me from defining the problem through implementation.",
@@ -17,7 +17,7 @@ export const profile = {
     international: "International experience",
   },
   fr: {
-    heading: "La personne derrière Innovance",
+    heading: "Wael Khayati",
     role: "Consultant en stratégie et transformation numérique",
     tagline: "Stratégie. Technologie. Mise en œuvre.",
     intro: "J’aide les entreprises à traduire leur stratégie en solutions numériques qu’elles peuvent réellement utiliser. Mon parcours associe conseil auprès des entreprises, ingénierie logicielle, gestion de produit et analyse de données métier. Vous travaillez directement avec moi, de la définition du besoin à la mise en œuvre.",
@@ -96,6 +96,6 @@ export const international = [
   },
   {
     id: "uae", country: { en: "United Arab Emirates", fr: "Émirats arabes unis" },
-    description: { en: "On-site enterprise consulting mission.", fr: "Mission de conseil en entreprise sur site." },
+    description: { en: "On-site enterprise consulting missions.", fr: "Missions de conseil en entreprise sur site." },
   },
 ];

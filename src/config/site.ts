@@ -3,7 +3,6 @@ export type Locale = (typeof locales)[number];
 
 export const site = {
   name: "Innovance",
-  consultant: "Mohamed Wael Khayati",
   url: parseSiteUrl(process.env.SITE_URL),
   logo: { src: "/brand/innovance-mark.svg", width: 204, height: 190 },
   portrait: { src: "/images/mohamed-wael-khayati-headshot.webp", width: 960, height: 960 },
