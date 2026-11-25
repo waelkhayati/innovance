@@ -21,11 +21,10 @@ export function Consultant({ locale }: { locale: Locale }) {
       <div className="consultant-layout">
         <div className="consultant-heading">
           <h2 id="consultant-title">{t.heading}</h2>
-          <p className="consultant-name">{site.consultant}</p>
           <p className="role">{t.role}</p>
         </div>
         {site.portrait && <div className="consultant-portrait">
-          <Image {...site.portrait} alt={site.consultant} sizes="(max-width: 390px) calc(100vw - 2rem), (max-width: 700px) 352px, (max-width: 1200px) 40vw, 464px" />
+          <Image {...site.portrait} alt={"Wael Khayati"} sizes="(max-width: 390px) calc(100vw - 2rem), (max-width: 700px) 352px, (max-width: 1200px) 40vw, 464px" />
         </div>}
         <div className="consultant-bio">
           <p className="lead">{t.tagline}</p>
